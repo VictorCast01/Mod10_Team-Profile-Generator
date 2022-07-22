@@ -101,7 +101,7 @@ inquirer
     },
     {
       type: 'input',
-      message: 'What is the name of your first engineer?',
+      message: 'What is the GitHub of your first engineer?',
       name: 'gitHub1',
     },
     {
