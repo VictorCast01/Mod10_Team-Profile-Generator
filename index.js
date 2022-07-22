@@ -1,7 +1,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 //const { inherits } = require('util');
-const generateHTML = ({ managerName, managerID, managerEMail, managerOffice, GitHub }) =>
+const generateHTML = ({ managerName, managerID, mail1, officeNum, engineerName1, engID1, engEM1, gitHub1, engineerName2, engID2, engEM2, gitHub2, engineerName3, engID3, engEM3, gitHub3, internName, internID, internEM, internSchool }) =>
 `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,44 +17,44 @@ const generateHTML = ({ managerName, managerID, managerEMail, managerOffice, Git
 <body>
     <div class="roles">
         <section class="card">
-          <header>Manager ☕: ${managerName}</header>
+          <header>Manager ☕: ${managerName} </header>
           <div class="row row-cols-2 row-cols-lg-3">
-            <div class="col">ID Number: ${managerID}</div>
-            <div class="col">E-Mail: ${managerEMail}</div>
-            <div class="col">Office Number: ${managerOffice}</div>
+            <div class="col">ID Number: ${managerID} </div>
+            <div class="col">E-Mail: ${mail1} </div>
+            <div class="col">Office Number: ${officeNum} </div>
           </div>
           <p></p>
         </section>
         <section class="card">
-          <header>Engineer 👓: </header>
+          <header>Engineer 👓: ${engineerName1} </header>
           <div class="row row-cols-2 row-cols-lg-3">
-            <div class="col">ID Number: </div>
-            <div class="col">E-Mail: </div>
-            <div class="col">GitHub: </div>
+            <div class="col">ID Number: ${engID1} </div>
+            <div class="col">E-Mail: ${engEM1} </div>
+            <div class="col">GitHub: ${gitHub1} </div>
           <p></p>
         </section>
         <section class="card">
-          <header>Engineer 👓: </header>
+          <header>Engineer 👓: ${engineerName2} </header>
           <div class="row row-cols-2 row-cols-lg-3">
-            <div class="col">ID Number: </div>
-            <div class="col">E-Mail: </div>
-            <div class="col">GitHub: </div>
+            <div class="col">ID Number: ${engID2} </div>
+            <div class="col">E-Mail: ${engEM2} </div>
+            <div class="col">GitHub: ${gitHub2} </div>
           <p></p>
         </section>
         <section class="card">
-            <header>Engineer 👓: </header>
+            <header>Engineer 👓: ${engineerName3} </header>
             <div class="row row-cols-2 row-cols-lg-3">
-                <div class="col">ID Number: </div>
-                <div class="col">E-Mail: </div>
-                <div class="col">GitHub: </div>
+                <div class="col">ID Number: ${engID3} </div>
+                <div class="col">E-Mail: ${engEM3} </div>
+                <div class="col">GitHub: ${gitHub3} </div>
             <p></p>
           </section>
         <section class="card">
-          <header>Intern 🎓:</header>
+          <header>Intern 🎓: ${internName}</header>
           <div class="row row-cols-2 row-cols-lg-3">
-            <div class="col">ID Number: </div>
-            <div class="col">E-Mail: </div>
-            <div class="col">School: </div>
+            <div class="col">ID Number: ${internID} </div>
+            <div class="col">E-Mail: ${internEM} </div>
+            <div class="col">School: ${internSchool} </div>
           <p></p>
         </section>
       </div>
@@ -77,39 +77,97 @@ inquirer
     {
         type: 'input',
         message: 'What is the E-Mail to reach out to the manager?',
-        name: 'E-Mail',
+        name: 'mail1',
     },
-
     {
         type: 'input',
         message: 'What is the Office Number?',
-        name: 'managerOffice',
+        name: 'officeNum',
     },
     {
-        type: 'rawlist',
-        message: 'Next we must assign four members to engineers or interns, who should the first member be?',
-        choices: ('engineer', 'intern')
+      type: 'input',
+      message: 'What is the name of your first engineer?',
+      name: 'engineerName1',
     },
     {
-        type: 'input',
-        message: 'What is their ID Number?',
-        name: 'engineerID1',
+      type: 'input',
+      message: 'What is the ID number for your first engineer?',
+      name: 'engID1',
     },
     {
-        type: 'input',
-        message: 'What is the E-Mail to reach out to this engineer?',
-        name: 'engineerEMail1',
+      type: 'input',
+      message: 'What is the E-mail of the first engineer?',
+      name: 'engEM1',
+    },
+    {
+      type: 'input',
+      message: 'What is the name of your first engineer?',
+      name: 'gitHub1',
+    },
+    {
+      type: 'input',
+      message: 'What is the name of your second engineer?',
+      name: 'engineerName2',
+    },
+    {
+      type: 'input',
+      message: 'What is the ID number for your second engineer?',
+      name: 'engID2',
+    },
+    {
+      type: 'input',
+      message: 'What is the E-mail of the second engineer?',
+      name: 'engEM2',
+    },
+    {
+      type: 'input',
+      message: 'What is the github of your second engineer?',
+      name: 'gitHub2',
+    },
+    {
+      type: 'input',
+      message: 'What is the name of your third engineer?',
+      name: 'engineerName3',
+    },
+    {
+      type: 'input',
+      message: 'What is the ID number for your third engineer?',
+      name: 'engID3',
+    },
+    {
+      type: 'input',
+      message: 'What is the E-mail of the third engineer?',
+      name: 'engEM3',
+    },
+    {
+      type: 'input',
+      message: 'What is the github of your third engineer?',
+      name: 'gitHub3',
+    },
+    {
+      type: 'input',
+      message: 'What is the name of your intern?',
+      name: 'internName',
+    },
+    {
+      type: 'input',
+      message: 'What is the ID number for your intern?',
+      name: 'internID',
+    },
+    {
+      type: 'input',
+      message: 'What is the E-mail of the intern?',
+      name: 'internEM',
+    },
+    {
+      type: 'input',
+      message: 'What school is your intern studying at?',
+      name: 'internSchool',
     },
 
-    {
-        type: 'input',
-        message: 'What is the GitHub for this engineer?',
-        name: 'engineerGitHub1',
-    },
+
 ]).then((answers) => {
     const htmlPageContent = generateHTML(answers);
-
-    if(DataTransfer.continue === "Add an Engineer")
 fs.writeFile("index.html",
 generateHTML(answers),
 (err) => err ? console.log(err) :console.log('Success!')
